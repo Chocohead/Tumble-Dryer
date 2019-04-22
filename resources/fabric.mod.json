@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "clothesline_motor",
+	"name": "Clothesline Motor",
+	"description": "Like a really simple tumble dryer",
+	"version": "1.0",
+	"authors": [
+		"Chocohead"
+	],
+	"contact": {
+		
+	},
+	"license": "MPL-2.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.chocohead.clm.ClothesLineMotor"
+		]
+	},
+	"requires": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*",
+		"clothesline-fabric": "*"
+	},
+	"mixins": [
+		"clothesline_motor.mixins.json"
+	]
+}

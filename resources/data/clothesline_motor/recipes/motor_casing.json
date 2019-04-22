@@ -1,0 +1,18 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		"GCG",
+		" G "
+	],
+	"key": {
+		"C": {
+			"item": "minecraft:cauldron"
+		},
+		"G": {
+			"item": "minecraft:green_dye"
+		}
+	},
+	"result": {
+		"item": "clothesline_motor:motor_casing"
+	}
+}

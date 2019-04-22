@@ -1,0 +1,19 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		" OI",
+		"OIO",
+		"IO "
+	],
+	"key": {
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"O": {
+			"item": "minecraft:orange_dye"
+		}
+	},
+	"result": {
+		"item": "clothesline_motor:coil"
+	}
+}

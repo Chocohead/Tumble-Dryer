@@ -1,0 +1,22 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		"A",
+		"c",
+		"C"
+	],
+	"key": {
+		"A": {
+			"item": "clothesline-fabric:clothesline_anchor"
+		},
+		"C": {
+			"item": "clothesline_motor:motor_casing"
+		},
+		"c": {
+			"item": "clothesline_motor:coil"
+		}
+	},
+	"result": {
+		"item": "clothesline_motor:motor"
+	}
+}

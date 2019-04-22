@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"compatibilityLevel": "JAVA_8",
+	"target": "@env(DEFAULT)",
+	"package": "com.chocohead.clm.mixins",
+	"mixins": [
+		"AnchorBlockMixin",
+		"LootContextTypesAccessor",
+		"ThreadedAnvilChunkStorageMixin"
+	]
+}

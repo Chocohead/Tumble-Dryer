@@ -1,0 +1,25 @@
+{
+	"type": "crafting_shaped",
+	"pattern": [
+		"OAO",
+		"GIG",
+		"OGO"
+	],
+	"key": {
+		"A": {
+			"item": "clothesline-fabric:clothesline_anchor"
+		},
+		"I": {
+			"item": "minecraft:iron_block"
+		},
+		"O": {
+			"item": "minecraft:orange_dye"
+		},
+		"G": {
+			"item": "minecraft:green_dye"
+		}
+	},
+	"result": {
+		"item": "clothesline_motor:motor"
+	}
+}
