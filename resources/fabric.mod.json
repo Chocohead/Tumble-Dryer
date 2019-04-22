@@ -1,14 +1,16 @@
 {
 	"schemaVersion": 1,
 	"id": "clothesline_motor",
-	"name": "Clothesline Motor",
-	"description": "Like a really simple tumble dryer",
+	"name": "Tumble Dryer",
+	"description": "All fun and games until it catches fire",
 	"version": "1.0",
 	"authors": [
 		"Chocohead"
 	],
 	"contact": {
-		
+		"homepage": "https://minecraft.curseforge.com/projects/tumble-dryer",
+		"sources": "https://github.com/Chocohead/Tumble-Dryer",
+		"issues": "https://github.com/Chocohead/Tumble-Dryer/issues"
 	},
 	"license": "MPL-2.0",
 	"environment": "*",
