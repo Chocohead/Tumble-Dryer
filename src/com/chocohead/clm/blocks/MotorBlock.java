@@ -99,19 +99,7 @@ public class MotorBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean boolean_1) {
-		//System.out.println("Added motor at " + pos + " (" + oldState.getBlock() + " => " + state.getBlock() + ')');
-		if (oldState != state && state.get(STATUS) == Status.ON) {
-			world.getBlockTickScheduler().schedule(pos, this, getTickRate(world));
-		}
-		//Thread.dumpStack();
-	}
-
-	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
-		/*Direction facing = Arrays.stream(Direction.getEntityFacingOrder(ctx.getPlayer())).filter(direction -> direction.getAxis() == Axis.Y).findFirst().orElse(Direction.UP);
-		return getDefaultState().with(FACING, facing.getOpposite());*/
-		//System.out.println(ctx.getPlayer().pitch);
 		return getDefaultState().with(FACING, ctx.getPlayer().pitch > 0 ? Direction.UP : Direction.DOWN);
 	}
 
@@ -124,9 +112,8 @@ public class MotorBlock extends Block implements Waterloggable {
 	public void onScheduledTick(BlockState state, World world, BlockPos pos, Random random) {
 		if (state.get(STATUS) == Status.ON) {
 			BlockPos connected = pos.offset(state.get(FACING));
-
 			NetworkNode node = ((NetworkManagerProvider) world).getNetworkManager().getNetworks().getNodes().get(connected);
-			//System.out.println("Ticking with " + state + " and " + node);
+
 			int nextUpdate = getTickRate(world);
 			if (node != null) {
 				NetworkState networkState = node.getNetwork().getState();
@@ -190,15 +177,6 @@ public class MotorBlock extends Block implements Waterloggable {
 			throw new IllegalStateException("Unexpected status " + state.get(STATUS));
 		}
 	}
-
-	/*@Override
-	public List<ItemStack> getDroppedStacks(BlockState state, LootContext.Builder builder) {
-		Status status = state.get(STATUS);
-		//return super.getDroppedStacks(state, builder.put(ClothesLineMotor.NOT_FLOODED, status == Status.OFF || status == Status.ON));
-		if (status == Status.OFF || status == Status.ON) builder.put(ClothesLineMotor.NOT_FLOODED, Boolean.TRUE);
-		LootContext context = builder.put(LootContextParameters.BLOCK_STATE, state).build(ClothesLineMotor.MOTOR_BLOCK_TABLE);
-		return context.getWorld().getServer().getLootManager().getSupplier(getDropTableId()).getDrops(context);
-	}*/
 
 	@Override
 	public FluidState getFluidState(BlockState state) {
