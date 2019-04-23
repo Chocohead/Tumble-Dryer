@@ -13,6 +13,7 @@
 		"issues": "https://github.com/Chocohead/Tumble-Dryer/issues"
 	},
 	"license": "MPL-2.0",
+	"icon": "logo.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
