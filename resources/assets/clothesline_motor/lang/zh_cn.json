@@ -1,0 +1,12 @@
+{
+	"block.clothesline_motor.motor": "马达",
+	"block.clothesline_motor.motor.off": "已关闭",
+	"block.clothesline_motor.motor.on": "已开启",
+	"block.clothesline_motor.motor.flooded": "马达在水中",
+	"block.clothesline_motor.motor.ruined": "马达进水损坏",
+	"item.clothesline_motor.broken_motor": "损坏的马达",
+	"item.clothesline_motor.broken_motor.disclaimer": "似乎被水淹没了",
+	"item.clothesline_motor.motor_casing": "马达外壳",
+	"item.clothesline_motor.coil": "线圈",
+	"item.clothesline_motor.coil.disclaimer": "可疑的磁性"
+}
