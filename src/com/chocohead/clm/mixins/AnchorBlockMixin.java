@@ -31,6 +31,7 @@ public abstract class AnchorBlockMixin extends WallMountedBlock {
 
 	@Inject(method = "canPlaceAt", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;isSolidSmallSquare(Lnet/minecraft/world/ViewableWorld;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/Direction;)Z", remap = true), remap = true, cancellable = true, locals = LocalCapture.CAPTURE_FAILHARD)
 	private void canPlaceOnMotor(BlockState state, ViewableWorld world, BlockPos pos, CallbackInfoReturnable<Boolean> callback, Direction direction, BlockPos neighbourPosition) {
+		//Block#isSolidSmallSquare needs a 4x10x4 shape from the given side, but our motor only has 2x16x2 thus we lie
 		if (world.getBlockState(neighbourPosition).getBlock() instanceof MotorBlock) callback.setReturnValue(true);
 	}
 }
