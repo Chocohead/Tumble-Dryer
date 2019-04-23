@@ -62,7 +62,7 @@ public class MotorBlock extends Block implements Waterloggable {
 
 	public static final DirectionProperty FACING = DirectionProperty.create("facing", Direction.UP, Direction.DOWN);
 	public static final EnumProperty<Status> STATUS = EnumProperty.create("status", Status.class);
-	private static final VoxelShape UP_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 0, 4, 12, 13, 12), Block.createCuboidShape(3, 1, 3, 13, 10, 13), Block.createCuboidShape(7, 13, 7, 9, 16, 9));
+	private static final VoxelShape UP_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 0, 4, 12, 13, 12), Block.createCuboidShape(3, 1, 3, 13, 11, 13), Block.createCuboidShape(7, 13, 7, 9, 16, 9));
 	private static final VoxelShape DOWN_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 3, 4, 12, 16, 12), Block.createCuboidShape(3, 5, 3, 13, 15, 13), Block.createCuboidShape(7, 0, 7, 9, 3, 9));
 
 	public MotorBlock() {
