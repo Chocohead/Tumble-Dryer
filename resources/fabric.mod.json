@@ -26,7 +26,7 @@
 			"com.chocohead.clm.client.RichInteractions"
 		]
 	},
-	"requires": {
+	"depends": {
 		"fabricloader": ">=0.4.0",
 		"fabric": "*",
 		"clothesline-fabric": "*"
