@@ -13,6 +13,7 @@ import java.util.Random;
 import com.jamieswhiteshirt.clothesline.api.NetworkManagerProvider;
 import com.jamieswhiteshirt.clothesline.api.NetworkNode;
 import com.jamieswhiteshirt.clothesline.api.NetworkState;
+import com.jamieswhiteshirt.clothesline.common.block.ClotheslineAnchorBlock;
 import com.jamieswhiteshirt.clothesline.common.item.ClotheslineItems;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -55,20 +56,37 @@ public class MotorBlock extends Block implements Waterloggable {
 		}
 	}
 
+	public enum Rotation implements StringIdentifiable {
+		CLOCKWISE(1),
+		COUNTER_CLOCKWISE(-1);
+
+		public final int multiplier;
+
+		Rotation(int multiplier) {
+			this.multiplier = multiplier;
+		}
+
+		@Override
+		public String asString() {
+			return name().toLowerCase(Locale.ENGLISH);
+		}
+	}
+
 	public static final DirectionProperty FACING = DirectionProperty.of("facing", Direction.UP, Direction.DOWN);
 	public static final EnumProperty<Status> STATUS = EnumProperty.of("status", Status.class);
+	public static final EnumProperty<Rotation> ROTATION = EnumProperty.of("rotation", Rotation.class);
 	private static final VoxelShape UP_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 0, 4, 12, 13, 12), Block.createCuboidShape(3, 1, 3, 13, 11, 13), Block.createCuboidShape(7, 13, 7, 9, 16, 9));
 	private static final VoxelShape DOWN_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 3, 4, 12, 16, 12), Block.createCuboidShape(3, 5, 3, 13, 15, 13), Block.createCuboidShape(7, 0, 7, 9, 3, 9));
 
 	public MotorBlock() {
 		super(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).breakByTool(FabricToolTags.PICKAXES, 1));
 
-		setDefaultState(stateManager.getDefaultState().with(FACING, Direction.UP).with(STATUS, Status.OFF));
+		setDefaultState(stateManager.getDefaultState().with(FACING, Direction.UP).with(STATUS, Status.OFF).with(ROTATION, Rotation.CLOCKWISE));
 	}
 
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-	    builder.add(FACING, STATUS);
+	    builder.add(FACING, STATUS, ROTATION);
 	}
 
 	@Override
@@ -118,9 +136,10 @@ public class MotorBlock extends Block implements Waterloggable {
 			if (node != null) {
 				NetworkState networkState = node.getNetwork().getState();
 				int momentum = networkState.getMomentum();
+				int rotationMultiplier = state.get(ROTATION).multiplier;
 
-				if (momentum < 15) {//Add on some momentum so long as it's not going to be faster than 50
-					networkState.setMomentum(momentum + nextUpdate);
+				if (momentum * rotationMultiplier < 15) {//Add on some momentum so long as it's not going to be faster than 50
+					networkState.setMomentum(momentum + nextUpdate * rotationMultiplier);
 
 					if (!world.isClient && world.random.nextBoolean()) {
 						switch (state.get(FACING)) {
@@ -136,12 +155,16 @@ public class MotorBlock extends Block implements Waterloggable {
 							throw new IllegalStateException("Unexpected facing: " + state.get(FACING));
 						}
 					}
-					if (momentum + nextUpdate < 14) nextUpdate = 1;
+					if ((momentum + nextUpdate) * rotationMultiplier < 14) nextUpdate = 1;
 				}
 			}
 
 			world.getBlockTickScheduler().schedule(pos, this, nextUpdate);
 		}
+	}
+
+	public static Rotation getInteractionRotation(BlockPos pos, double x, double z, PlayerEntity player) {
+		return ClotheslineAnchorBlock.getCrankMultiplier(pos, x, z, player) > 0 ? Rotation.CLOCKWISE : Rotation.COUNTER_CLOCKWISE;
 	}
 
 	@Override
@@ -150,16 +173,22 @@ public class MotorBlock extends Block implements Waterloggable {
 		if (player.getStackInHand(hand).getItem() == ClotheslineItems.CLOTHESLINE_ANCHOR) return ActionResult.PASS;
 		if (world.isClient) return ActionResult.success(true);
 
+		Rotation interactionRotation = getInteractionRotation(pos, hit.getPos().x, hit.getPos().z, player);
 		switch (state.get(STATUS)) {
 		case OFF:
-			world.setBlockState(pos, state.with(STATUS, Status.ON));
+			world.setBlockState(pos, state.with(STATUS, Status.ON).with(ROTATION, interactionRotation));
 			world.getBlockTickScheduler().schedule(pos, this, getTickRate(world));
 			player.sendMessage(new TranslatableText(getTranslationKey() + ".on"), true);
 			return ActionResult.success(false);
 
 		case ON:
-			world.setBlockState(pos, state.with(STATUS, Status.OFF));
-			player.sendMessage(new TranslatableText(getTranslationKey() + ".off"), true);
+			if (state.get(ROTATION) == interactionRotation) {
+				world.setBlockState(pos, state.with(STATUS, Status.OFF));
+				player.sendMessage(new TranslatableText(getTranslationKey() + ".off"), true);
+			} else {
+				world.setBlockState(pos, state.with(ROTATION, interactionRotation));
+				player.sendMessage(new TranslatableText(getTranslationKey() + ".switched"), true);
+			}
 			return ActionResult.success(false);
 
 		case BUST:

@@ -21,6 +21,9 @@
 		],
 		"client": [
 			"com.chocohead.clm.client.ClothesLineMotorClient"
+		],
+		"clothesline:rich_interaction": [
+			"com.chocohead.clm.client.RichInteractions"
 		]
 	},
 	"requires": {
