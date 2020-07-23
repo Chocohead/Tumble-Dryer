@@ -18,6 +18,9 @@
 	"entrypoints": {
 		"main": [
 			"com.chocohead.clm.ClothesLineMotor"
+		],
+		"client": [
+			"com.chocohead.clm.client.ClothesLineMotorClient"
 		]
 	},
 	"requires": {

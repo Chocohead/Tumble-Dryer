@@ -7,7 +7,7 @@
 	],
 	"key": {
 		"A": {
-			"item": "clothesline-fabric:clothesline_anchor"
+			"item": "clothesline:clothesline_anchor"
 		},
 		"I": {
 			"item": "minecraft:iron_block"

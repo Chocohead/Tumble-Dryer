@@ -4,7 +4,6 @@
 	"target": "@env(DEFAULT)",
 	"package": "com.chocohead.clm.mixins",
 	"mixins": [
-		"AnchorBlockMixin",
-		"ThreadedAnvilChunkStorageMixin"
+		"AnchorBlockMixin"
 	]
 }

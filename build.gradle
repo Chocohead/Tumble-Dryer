@@ -15,7 +15,7 @@ buildscript {
 		}
 	}
 	dependencies {
-        classpath 'com.github.Chocohead:fabric-loom:215f61c'
+        classpath 'com.github.Chocohead:fabric-loom:ceb8bad'
 	}
 }
 
@@ -35,18 +35,18 @@ repositories {
 }
 
 dependencies {
-	def mcVersion = "1.14"
-	def mapping = "$mcVersion+build.1"
+	def mcVersion = "1.16.1"
+	def mapping = "$mcVersion+build.21"
 
 	minecraft "com.mojang:minecraft:$mcVersion"
-	mappings "net.fabricmc:yarn:$mapping:enigma@zip"
+	mappings "net.fabricmc:yarn:$mapping:v2"
 	implementation "net.fabricmc:yarn:$mapping"
 
-	modCompile "net.fabricmc:fabric-loader:0.4.2+build.132"
-	modCompile "net.fabricmc:fabric:0.2.7+build.127"
+	modCompile "net.fabricmc:fabric-loader:0.9.0+build.204"
+	modCompile "net.fabricmc.fabric-api:fabric-api:0.15.1+build.380-1.16.1"
 
-	modCompile "com.jamieswhiteshirt:rtree-3i-lite-fabric:0.2.0"
-	modCompile "com.jamieswhiteshirt:clothesline-fabric:0.0.16"
+	modCompile "com.jamieswhiteshirt:rtree-3i-lite-fabric:0.3.0"
+	modCompile "com.jamieswhiteshirt:clothesline-fabric:0.2.0+1.16.1"
 }
 
 sourceSets {
