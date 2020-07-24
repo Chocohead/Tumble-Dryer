@@ -22,7 +22,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.Mutable;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkSection;
@@ -61,12 +60,10 @@ public class ClothesLineMotor implements ModInitializer {
 		});
 
 		ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
-			BlockState activeUpMotor = MOTOR.getDefaultState().with(MotorBlock.STATUS, Status.ON).with(MotorBlock.FACING, Direction.UP);
-			BlockState activeDownMotor = MOTOR.getDefaultState().with(MotorBlock.STATUS, Status.ON).with(MotorBlock.FACING, Direction.DOWN);
 			Mutable relativePos = new Mutable(chunk.getPos().getStartX(), 0, chunk.getPos().getStartZ());
 
 			for (ChunkSection section : chunk.getSectionArray()) {
-				if (!ChunkSection.isEmpty(section) && (section.method_19523(state -> state == activeUpMotor || state == activeDownMotor))) {
+				if (!ChunkSection.isEmpty(section) && (section.method_19523(state -> state.get(MotorBlock.STATUS) == Status.ON))) {
 					for (int x = 0; x < 16; x++) {
 						for (int y = 0; y < 16; y++) {
 							for (int z = 0; z < 16; z++) {
