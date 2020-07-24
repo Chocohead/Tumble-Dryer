@@ -126,7 +126,7 @@ public class MotorBlock extends Block implements Waterloggable {
 		return getDefaultState().with(FACING, ctx.getPlayer().pitch > 0 ? Direction.UP : Direction.DOWN);
 	}
 
-	public int getTickRate(WorldView world) {
+	public static int getTickRate(WorldView world) {
 		return 2;
 	}
 

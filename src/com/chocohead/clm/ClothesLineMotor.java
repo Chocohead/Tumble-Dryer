@@ -72,7 +72,7 @@ public class ClothesLineMotor implements ModInitializer {
 								if (state.getBlock() == MOTOR && state.get(MotorBlock.STATUS) == Status.ON) {
 									BlockPos realPos = relativePos.add(x, y, z);
 
-									world.getBlockTickScheduler().schedule(realPos, MOTOR, MOTOR.getTickRate(world));
+									world.getBlockTickScheduler().schedule(realPos, MOTOR, MotorBlock.getTickRate(world));
 								}
 							}
 						}
