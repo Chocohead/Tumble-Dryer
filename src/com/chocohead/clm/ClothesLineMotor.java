@@ -63,7 +63,7 @@ public class ClothesLineMotor implements ModInitializer {
 			Mutable relativePos = new Mutable(chunk.getPos().getStartX(), 0, chunk.getPos().getStartZ());
 
 			for (ChunkSection section : chunk.getSectionArray()) {
-				if (!ChunkSection.isEmpty(section) && (section.method_19523(state -> state.get(MotorBlock.STATUS) == Status.ON))) {
+				if (!ChunkSection.isEmpty(section) && (section.method_19523(state -> state.isOf(MOTOR) && state.get(MotorBlock.STATUS) == Status.ON))) {
 					for (int x = 0; x < 16; x++) {
 						for (int y = 0; y < 16; y++) {
 							for (int z = 0; z < 16; z++) {
