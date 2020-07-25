@@ -91,17 +91,17 @@ public class MotorBlock extends Block implements Waterloggable {
 
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-	    builder.add(FACING, STATUS, ROTATION);
+		builder.add(FACING, STATUS, ROTATION);
 	}
 
 	@Override
-    @Deprecated
+	@Deprecated
 	public BlockRenderType getRenderType(BlockState state) {
 		return BlockRenderType.MODEL;
 	}
 
 	@Override
-    @Deprecated
+	@Deprecated
 	public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
 		switch (state.get(FACING)) {
 			case UP:
@@ -131,7 +131,7 @@ public class MotorBlock extends Block implements Waterloggable {
 	}
 
 	@Override
-    @Deprecated
+	@Deprecated
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		if (state.get(STATUS) == Status.ON) {
 			BlockPos connected = pos.offset(state.get(FACING));
