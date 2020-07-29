@@ -7,7 +7,7 @@
 	],
 	"key": {
 		"A": {
-			"item": "clothesline-fabric:clothesline_anchor"
+			"item": "clothesline:clothesline_anchor"
 		},
 		"C": {
 			"item": "clothesline_motor:motor_casing"

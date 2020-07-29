@@ -2,6 +2,7 @@
 	"block.clothesline_motor.motor": "Motor",
 	"block.clothesline_motor.motor.off": "Turned off",
 	"block.clothesline_motor.motor.on": "Turned on",
+	"block.clothesline_motor.motor.switched": "Reversed rotation",
 	"block.clothesline_motor.motor.flooded": "Motor is submerged",
 	"block.clothesline_motor.motor.ruined": "Motor is water damaged",
 	"item.clothesline_motor.broken_motor": "Broken Motor",
