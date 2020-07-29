@@ -1,0 +1,12 @@
+{
+	"block.tumble_dryer.motor": "马达",
+	"block.tumble_dryer.motor.off": "已关闭",
+	"block.tumble_dryer.motor.on": "已开启",
+	"block.tumble_dryer.motor.flooded": "马达在水中",
+	"block.tumble_dryer.motor.ruined": "马达进水损坏",
+	"item.tumble_dryer.broken_motor": "损坏的马达",
+	"item.tumble_dryer.broken_motor.disclaimer": "似乎被水淹没了",
+	"item.tumble_dryer.motor_casing": "马达外壳",
+	"item.tumble_dryer.coil": "线圈",
+	"item.tumble_dryer.coil.disclaimer": "可疑的磁性"
+}

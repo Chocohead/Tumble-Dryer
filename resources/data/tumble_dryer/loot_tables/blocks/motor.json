@@ -4,7 +4,7 @@
 		"rolls": 1,
 		"entries": [{
 			"type": "minecraft:item",
-			"name": "clothesline_motor:motor"
+			"name": "tumble_dryer:motor"
 		}],
 		"conditions": [{
 			"condition": "minecraft:survives_explosion"
@@ -12,13 +12,13 @@
 			"condition": "alternative",
 			"terms": [{
 				"condition": "minecraft:block_state_property",
-				"block": "clothesline_motor:motor",
+				"block": "tumble_dryer:motor",
 				"properties": {
 					"status": "off"
 				}
 			}, {
 				"condition": "minecraft:block_state_property",
-				"block": "clothesline_motor:motor",
+				"block": "tumble_dryer:motor",
 				"properties": {
 					"status": "on"
 				}
@@ -28,7 +28,7 @@
 		"rolls": 1,
 		"entries": [{
 			"type": "minecraft:item",
-			"name": "clothesline_motor:broken_motor"
+			"name": "tumble_dryer:broken_motor"
 		}],
 		"conditions": [{
 			"condition": "minecraft:survives_explosion"
@@ -36,13 +36,13 @@
 			"condition": "alternative",
 			"terms": [{
 				"condition": "minecraft:block_state_property",
-				"block": "clothesline_motor:motor",
+				"block": "tumble_dryer:motor",
 				"properties": {
 					"status": "bust"
 				}
 			}, {
 				"condition": "minecraft:block_state_property",
-				"block": "clothesline_motor:motor",
+				"block": "tumble_dryer:motor",
 				"properties": {
 					"status": "flooded"
 				}

@@ -1,9 +1,0 @@
-{
-	"type": "minecraft:crafting_shapeless",
-	"ingredients": [{
-		"item": "clothesline_motor:broken_motor"
-	}],
-	"result": {
-		"item": "clothesline_motor:motor_casing"
-	}
-}

@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "clothesline_motor",
+	"id": "tumble_dryer",
 	"name": "Tumble Dryer",
 	"description": "All fun and games until it catches fire",
 	"version": "1.1",
@@ -32,6 +32,6 @@
 		"clothesline-fabric": "*"
 	},
 	"mixins": [
-		"clothesline_motor.mixins.json"
+		"tumble_dryer.mixins.json"
 	]
 }

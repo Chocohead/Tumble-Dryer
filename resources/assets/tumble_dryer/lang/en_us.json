@@ -1,0 +1,13 @@
+{
+	"block.tumble_dryer.motor": "Motor",
+	"block.tumble_dryer.motor.off": "Turned off",
+	"block.tumble_dryer.motor.on": "Turned on",
+	"block.tumble_dryer.motor.switched": "Reversed rotation",
+	"block.tumble_dryer.motor.flooded": "Motor is submerged",
+	"block.tumble_dryer.motor.ruined": "Motor is water damaged",
+	"item.tumble_dryer.broken_motor": "Broken Motor",
+	"item.tumble_dryer.broken_motor.disclaimer": "Appears to have been flooded",
+	"item.tumble_dryer.motor_casing": "Motor Casing",
+	"item.tumble_dryer.coil": "Coil",
+	"item.tumble_dryer.coil.disclaimer": "Questionably magnetic"
+}

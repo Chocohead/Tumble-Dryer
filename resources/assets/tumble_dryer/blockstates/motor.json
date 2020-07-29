@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=up,status=off": { "model": "tumble_dryer:block/motor" },
+		"facing=up,status=on": { "model": "tumble_dryer:block/motor" },
+		"facing=up,status=bust": { "model": "tumble_dryer:block/motor" },
+		"facing=up,status=flooded": { "model": "tumble_dryer:block/motor" },
+		"facing=down,status=off": { "model": "tumble_dryer:block/motor", "x": 180 },
+		"facing=down,status=on": { "model": "tumble_dryer:block/motor", "x": 180 },
+		"facing=down,status=bust": { "model": "tumble_dryer:block/motor", "x": 180 },
+		"facing=down,status=flooded": { "model": "tumble_dryer:block/motor", "x": 180 }
+	}
+}

@@ -10,13 +10,13 @@
 			"item": "clothesline:clothesline_anchor"
 		},
 		"C": {
-			"item": "clothesline_motor:motor_casing"
+			"item": "tumble_dryer:motor_casing"
 		},
 		"c": {
-			"item": "clothesline_motor:coil"
+			"item": "tumble_dryer:coil"
 		}
 	},
 	"result": {
-		"item": "clothesline_motor:motor"
+		"item": "tumble_dryer:motor"
 	}
 }

@@ -1,9 +1,9 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"motor_side": "clothesline_motor:blocks/motor_side",
-		"motor_vent_side": "clothesline_motor:blocks/motor_vent_side",
-		"particle": "clothesline_motor:blocks/motor_side"
+		"motor_side": "tumble_dryer:blocks/motor_side",
+		"motor_vent_side": "tumble_dryer:blocks/motor_vent_side",
+		"particle": "tumble_dryer:blocks/motor_side"
 	},
 	"elements": [
 		{

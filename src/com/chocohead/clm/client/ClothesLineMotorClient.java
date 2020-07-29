@@ -7,10 +7,13 @@
  */
 package com.chocohead.clm.client;
 
-import com.chocohead.clm.ClothesLineMotor;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
+
+import net.fabricmc.api.ClientModInitializer;
+
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+
+import com.chocohead.clm.ClothesLineMotor;
 
 public class ClothesLineMotorClient implements ClientModInitializer {
 	@Override

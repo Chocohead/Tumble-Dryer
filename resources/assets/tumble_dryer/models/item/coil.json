@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "clothesline_motor:items/coil"
+        "layer0": "tumble_dryer:items/coil"
     }
 }

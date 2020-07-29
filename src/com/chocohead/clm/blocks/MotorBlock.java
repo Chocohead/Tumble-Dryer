@@ -10,14 +10,6 @@ package com.chocohead.clm.blocks;
 import java.util.Locale;
 import java.util.Random;
 
-import com.jamieswhiteshirt.clothesline.api.NetworkManagerProvider;
-import com.jamieswhiteshirt.clothesline.api.NetworkNode;
-import com.jamieswhiteshirt.clothesline.api.NetworkState;
-import com.jamieswhiteshirt.clothesline.common.block.ClotheslineAnchorBlock;
-import com.jamieswhiteshirt.clothesline.common.item.ClotheslineItems;
-
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -50,6 +42,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+
+import com.jamieswhiteshirt.clothesline.api.NetworkManagerProvider;
+import com.jamieswhiteshirt.clothesline.api.NetworkNode;
+import com.jamieswhiteshirt.clothesline.api.NetworkState;
+import com.jamieswhiteshirt.clothesline.common.block.ClotheslineAnchorBlock;
+import com.jamieswhiteshirt.clothesline.common.item.ClotheslineItems;
 
 public class MotorBlock extends Block implements Waterloggable {
 	public enum Status implements StringIdentifiable {
